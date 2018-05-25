@@ -1,0 +1,32 @@
+<html>
+<head>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<title>Myblog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <script>
+        var thisurl = decodeURI(document.URL);
+        var getid = thisurl.split('?')[1].split('=')[1];
+        var geturl = "http://127.0.0.1:5000/api/posts/"+getid;
+        $.get(geturl,function(data,status){
+            var datastring = ''
+                datastring += '<li>' + 'AUTHOR:  ' + data.author + '</li>'
+                datastring += '<li>' + 'POST:  ' + data.body + '</li>'
+                datastring += '<li>' + 'COMMENTS:  ' + data.comments + '</li>'
+                datastring += '<li>' + 'TIME:  '+data.timestamp +'</li>'
+                datastring += '</br>'
+            $("#mydata").html(datastring);
+        });
+    </script>s
+</head>
+<body>
+
+
+<div class="container">
+    <div id="mydata" style="padding:50px;font-family:Futura">
+    </div>
+</div>
+
+</body>
+</html>

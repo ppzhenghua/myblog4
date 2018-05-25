@@ -1,0 +1,46 @@
+2018-04-28 15:40:54,546 ERROR: Exception on /user/Echo [GET] [in /Users/ppdfour/myblog2.0/venv/lib/python3.6/site-packages/flask/app.py:1753]
+Traceback (most recent call last):
+  File "/Users/ppdfour/myblog2.0/venv/lib/python3.6/site-packages/flask/app.py", line 2284, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ppdfour/myblog2.0/venv/lib/python3.6/site-packages/flask/app.py", line 1807, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ppdfour/myblog2.0/venv/lib/python3.6/site-packages/flask/app.py", line 1710, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/ppdfour/myblog2.0/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/ppdfour/myblog2.0/venv/lib/python3.6/site-packages/flask/app.py", line 1805, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ppdfour/myblog2.0/venv/lib/python3.6/site-packages/flask/app.py", line 1791, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/ppdfour/myblog2.0/venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/ppdfour/myblog2.0/app/main/views.py", line 77, in user
+    next_url=next_url, prev_url=prev_url)
+  File "/Users/ppdfour/myblog2.0/venv/lib/python3.6/site-packages/flask/templating.py", line 135, in render_template
+    context, ctx.app)
+  File "/Users/ppdfour/myblog2.0/venv/lib/python3.6/site-packages/flask/templating.py", line 117, in _render
+    rv = template.render(context)
+  File "/Users/ppdfour/myblog2.0/venv/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/Users/ppdfour/myblog2.0/venv/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/Users/ppdfour/myblog2.0/venv/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/ppdfour/myblog2.0/venv/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/ppdfour/myblog2.0/app/templates/user.html", line 1, in top-level template code
+    {% extends "bootstrap/base.html" %}
+  File "/Users/ppdfour/myblog2.0/venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/Users/ppdfour/myblog2.0/venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block "doc"
+    {%- block html %}
+  File "/Users/ppdfour/myblog2.0/venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block "html"
+    {% block body -%}
+  File "/Users/ppdfour/myblog2.0/venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 21, in block "body"
+    {% block navbar %}
+  File "/Users/ppdfour/myblog2.0/app/templates/user.html", line 23, in block "navbar"
+    {% if current_user.can(Permisshion.MODERATE) %}
+  File "/Users/ppdfour/myblog2.0/venv/lib/python3.6/site-packages/jinja2/environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'Permisshion' is undefined
+2018-04-28 15:41:45,371 INFO: Microblog startup [in /Users/ppdfour/myblog2.0/app/__init__.py:59]

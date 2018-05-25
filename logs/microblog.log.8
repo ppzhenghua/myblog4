@@ -1,0 +1,73 @@
+2018-04-27 20:43:45,619 ERROR: Exception on / [GET] [in /Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: users
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/flask/app.py", line 1610, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/flask/app.py", line 1831, in preprocess_request
+    rv = func()
+  File "/Users/ppdfour/myblog2.0/app/main/views.py", line 18, in before_request
+    if current_user.is_authenticated:
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/werkzeug/local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/werkzeug/local.py", line 306, in _get_current_object
+    return self.__local()
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/flask_login/utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/flask_login/utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/flask_login/login_manager.py", line 359, in _load_user
+    return self.reload_user()
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/flask_login/login_manager.py", line 321, in reload_user
+    user = self.user_callback(user_id)
+  File "/Users/ppdfour/myblog2.0/app/models.py", line 83, in load_user
+    return User.query.get(int(id))
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 882, in get
+    ident, loading.load_on_pk_identity)
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 952, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/sqlalchemy/orm/loading.py", line 247, in load_on_pk_identity
+    return q.one()
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2884, in one
+    ret = self.one_or_none()
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2854, in one_or_none
+    ret = list(self)
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2925, in __iter__
+    return self._execute_and_instances(context)
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2948, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/Users/ppdfour/microblog-0.9/venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: users [SQL: 'SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.about_me AS users_about_me, users.last_seen AS users_last_seen \nFROM users \nWHERE users.id = ?'] [parameters: (5,)] (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-04-27 20:52:12,382 INFO: Microblog startup [in /Users/ppdfour/myblog2.0/app/__init__.py:63]

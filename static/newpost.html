@@ -1,0 +1,29 @@
+<html>
+
+<head>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<title>Myblog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+
+
+<div class="container">
+
+</div>
+
+<script>
+
+
+    $.post("http://127.0.0.1:5000/api/posts",
+        {
+            body:"nihao!",
+        },
+        function(data){
+        alert(data.posts[2].body);
+    });
+</script>
+
+</body>
+</html>

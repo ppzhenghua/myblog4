@@ -1,0 +1,86 @@
+
+<html>
+
+<head>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<title>Myblog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+li{
+    list-style-type: square;
+}
+</style>
+<script>
+    $.get("http://127.0.0.1:5000/api/posts",function(data,status){
+        var datastring = ''
+
+        for (var group in data.posts){
+
+            datastring +='<li>'+'TIME:  '+data.posts[group].timestamp +'</li>'
+            datastring +='<li>'+'POST:  '+data.posts[group].body +'</li>'
+            datastring +='<li>'+'<a href="http://127.0.0.1:5000/post/'+data.posts[group].id+'">'+'查看'+'</a>'+'</li>'
+            datastring +='<li>'+'<a href="detailpost.html?id='+data.posts[group].id+'">'+'查看详情'+'</a>'+'</li>'
+            datastring +='</br>'
+        }
+        $("#getdata").html(datastring);
+    });
+
+
+
+</script>
+
+</head>
+
+
+<body>
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Myblog</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="/">Home</a></li>
+                <li><a href="/explore">Explore</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+
+
+                    <li><a href="/user/Echo">Profile</a></li>
+                    <li><a href="/auth/logout">Logout</a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div id="getdata" style="padding:50px;font-family:Futura">
+    </div>
+
+    <div id="postdata" style="">
+        <input type="text" id="text_postdata">
+        <button>提交</button>
+    </div>
+</div>
+
+<script>
+    var postbody=$("#text_postdata").val();
+    $("button").click(function(){
+        $.post("http://127.0.0.1:5000/api/posts",{"body":postbody},function(data,status){
+        alert(postbody);
+        });
+    })
+
+</script>
+
+</body>
+</html>
